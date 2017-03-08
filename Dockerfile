@@ -20,12 +20,12 @@ RUN set -x && \
   apt-get autoremove -y && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN adduser --system --no-create-home --uid 60000 filebeat
-RUN mkdir /filebeat && chown filebeat /filebeat
+RUN mkdir /filebeat /filebeat/config /filebeat/data && \
+    chmod a+w /filebeat/data
 
 WORKDIR /filebeat
-USER filebeat
 
-COPY filebeat.yml .
+# using a sample config file
+COPY filebeat.yml ./config/
 
-CMD [ "filebeat", "-e" ]
+CMD [ "filebeat", "-e", "-path.config", "/filebeat/config" ]
