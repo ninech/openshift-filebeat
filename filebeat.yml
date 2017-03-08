@@ -1,0 +1,11 @@
+# This is a sample configuration file. Link your own file into the
+# image at /filebeat/filebeat.yml to configure it for your needs.
+---
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - /var/log/*.log
+
+output.file:
+  path: "/tmp/filebeat"
+  filename: filebeat
