@@ -20,9 +20,8 @@ stringData:
     - input_type: log
       paths:
         - /var/log/*.log
-    output.file:
-      path: "/tmp/filebeat"
-      filename: filebeat
+    output.console:
+      pretty: true
 ```
 
 Then link this secret into your pods:
