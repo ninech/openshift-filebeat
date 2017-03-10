@@ -10,11 +10,10 @@ The path for the configuration file is `/filebeat/config/filebeat.yml`. It has i
 
 ```yml
 apiVersion: v1
-kind: Secret
+kind: ConfigMap
 metadata:
   name: filebeat-config
-type: Opaque
-stringData:
+data:
   filebeat.yml: |
     filebeat.prospectors:
     - input_type: log
@@ -24,7 +23,7 @@ stringData:
       pretty: true
 ```
 
-Then link this secret into your pods:
+Then link this config map into your pods:
 
 ```yaml
 apiVersion: v1
@@ -41,6 +40,6 @@ spec:
             readOnly: true
   volumes:
     - name: filebeat-config-volume
-      secret:
-        secretName: filebeat-config
+      configMap:
+        name: filebeat-config
 ```
