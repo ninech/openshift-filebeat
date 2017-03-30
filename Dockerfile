@@ -33,6 +33,6 @@ RUN set -x && \
 WORKDIR /filebeat
 
 # using a sample config file
-COPY filebeat.yml ./config/
+#COPY filebeat.yml ./config/
 
 CMD [ "filebeat", "-e", "-path.config", "/filebeat/config" ]
