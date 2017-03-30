@@ -36,4 +36,4 @@ WORKDIR /filebeat
 COPY filebeat.yml ./config/
 RUN chmod 0400 ./config/filebeat.yml
 
-CMD [ "filebeat", "-e", "-path.config", "/filebeat/config", "-strict.perms", "false" ]
+CMD [ "filebeat", "-e", "-path.config", "/filebeat/config", "-strict.perms=false" ]
