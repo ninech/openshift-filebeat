@@ -27,5 +27,6 @@ WORKDIR /filebeat
 
 # using a sample config file
 COPY filebeat.yml ./config/
+RUN chmod 0400 config/filebeat.yml
 
 CMD [ "filebeat", "-e", "-path.config", "/filebeat/config" ]
