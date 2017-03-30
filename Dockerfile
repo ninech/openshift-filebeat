@@ -11,10 +11,8 @@ ENV FILEBEAT_SHA1=${FILEBEAT_SHA1:-"c6f56d1a938889ec9f5db7caea266597f625fcc1"}
 RUN set -x && \
     apt-get update && \
     apt-get install -y wget && \
-    apt-get clean
-
 #install and configure filebeat
-RUN mkdir /filebeat /filebeat/config /filebeat/data && \
+    mkdir /filebeat /filebeat/config /filebeat/data && \
     chmod a+w /filebeat/data && \
     wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz -O /opt/filebeat.tar.gz && \
     cd /opt && \
@@ -23,10 +21,9 @@ RUN mkdir /filebeat /filebeat/config /filebeat/data && \
     cd filebeat-* && \
     cp filebeat /bin && \
     cp filebeat.template.json /filebeat && \
-    mv module /filebeat
-
+    mv module /filebeat && \
 #clean up
-RUN cd /opt && \
+    cd /opt && \
     rm -rf filebeat* && \
     apt-get purge -y wget && \
     apt-get autoremove -y && \
