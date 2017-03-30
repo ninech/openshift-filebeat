@@ -2,8 +2,10 @@ FROM debian:jessie
 
 MAINTAINER nine.ch Engineering <engineering@nine.ch>
 
-ENV FILEBEAT_VERSION=5.3.0 \
-    FILEBEAT_SHA1=c6f56d1a938889ec9f5db7caea266597f625fcc1
+ARG FILEBEAT_VERSION
+ENV FILEBEAT_VERSION=${FILEBEAT_VERSION:-"5.3.0"}
+ARG FILEBEAT_SHA1
+ENV FILEBEAT_SHA1=${FILEBEAT_SHA1:-"c6f56d1a938889ec9f5db7caea266597f625fcc1"}
 
 # update and install wget
 RUN set -x && \
