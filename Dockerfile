@@ -13,7 +13,7 @@ ARG FILEBEAT_SHA_TYPE
 # copying the reference file can fail depending on version which is why it terminates with ; not &&
 RUN set -x && \
     apt-get update && \
-    apt-get install -y wget --no-install-recommends && \
+    apt-get install -y wget && \
     mkdir /filebeat /filebeat/config /filebeat/data && \
     chmod a+w /filebeat/data && \
     wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz -O /opt/filebeat.tar.gz && \
