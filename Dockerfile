@@ -24,7 +24,7 @@ RUN set -x && \
     cp filebeat /bin && \
     cp filebeat.template.json /filebeat ; \
     cp filebeat.reference.yml /filebeat ; \
-    mv module /filebeat && \
+    mv module /filebeat ; \
     cd /opt && \
     rm -rf filebeat* && \
     apt-get purge -y wget && \
