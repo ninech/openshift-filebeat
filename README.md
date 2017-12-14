@@ -1,5 +1,7 @@
 # Elastic Filebeat Container for Openshift
 
+THIS IMAGE IS DEPRECATED AND WILL NOT BE UPDATED, PLEASE USE OFFICIAL [ELASTIC FILEBEATS IMAGES](https://www.elastic.co/guide/en/beats/filebeat/current/running-on-docker.html) FROM THE [ELASTIC REGISTRY](https://www.docker.elastic.co/)
+
 Run this image in a non-openshift environment:
 
     docker run -v filebeat.yml:/filebeat/config/filebeat.yml ninech/openshift-filebeat
